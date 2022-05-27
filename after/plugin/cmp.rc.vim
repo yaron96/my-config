@@ -25,16 +25,28 @@ cmp.setup({
             behavior = cmp.ConfirmBehavior.Replace,
             select = true
         }),
-        ["<Tab>"] = cmp.mapping(function(fallback)
+        ['<Tab>'] = cmp.mapping(function (fallback)
+--            if luasnip.expandable() then
+--                luasnip.expand()
             if cmp.visible() then
                 cmp.select_next_item()
+--            elseif luasnip.jumpable(1) then
+--                luasnip.jump(1)
+--            elseif vim.api.nvim_get_mode().mode == 'i' then
+--                tabout.tabout()
+            else
+                fallback()
             end
-        end, { 'i', 's' }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
+        end, {'i', 's'}),
+        ['<S-Tab>'] = cmp.mapping(function (fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
+--            elseif luasnip.jumpable(-1) then
+--                luasnip.jump(-1)
+            else
+                fallback()
             end
-        end, {'i', 's'})
+        end, {'i', 's'}) 
     },
     sources = cmp.config.sources(
     {

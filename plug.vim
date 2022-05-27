@@ -1,36 +1,71 @@
-if has("nvim")
-  let g:plug_home = stdpath('data') . '/plugged'
-endif
-
 call plug#begin()
 
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'cohama/lexima.vim'
-
-
-
 if has("nvim")
-  
-  Plug 'neovim/nvim-lspconfig'
-"  Plug 'glepnir/lspsaga.nvim'
-  Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
-  "complection
-  Plug 'hrsh7th/cmp-nvim-lsp'
+
+""""" """"" """"" """"" """"" """""
+"syntax highlighting
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+""""" """"" """"" """"" """"" """""
+
+
+""""" """"" """"" """"" """"" """""
+"auto-complete and more
+  Plug 'neovim/nvim-lspconfig'
   Plug 'hrsh7th/nvim-cmp'
   Plug 'L3MON4D3/LuaSnip'
   Plug 'hrsh7th/cmp-buffer'
-  Plug 'onsails/lspkind-nvim'
+  Plug 'hrsh7th/cmp-nvim-lsp'
+  Plug 'onsails/lspkind-nvim' 
+""""" """"" """"" """"" """"" """""  
+  
+  
+""""" """"" """"" """"" """"" """""
+"auto-close pairs
+  Plug 'cohama/lexima.vim'
+""""" """"" """"" """"" """"" """""
 
-"file search and browser
+
+""""" """"" """"" """"" """"" """""
+" git
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-rhubarb'
+""""" """"" """"" """"" """"" """""
+
+
+""""" """"" """"" """"" """"" """""
+"search
   Plug 'nvim-lua/popup.nvim'
   Plug 'nvim-lua/plenary.nvim'
-  Plug 'nvim-telescope/telescope.nvim'
+  Plug 'nvim-telescope/telescope.nvim' """ $ sudo apt-get install ripgrep
   Plug 'nvim-telescope/telescope-file-browser.nvim'
   Plug 'kyazdani42/nvim-web-devicons'
+""""" """"" """"" """"" """"" """""
 
-"my added
+
+""""" """"" """"" """"" """"" """""
+"bottom line
+  Plug 'hoob3rt/lualine.nvim'  
+""""" """"" """"" """"" """"" """""
+
+
+""""" """"" """"" """"" """"" """""
+"themes
+  Plug 'joshdick/onedark.vim'
+  Plug 'tribela/vim-transparent'
+""""" """"" """"" """"" """"" """""
+
+
+""""" """"" """"" """"" """"" """""
+"other
+ Plug 'tpope/vim-eunuch'
+ 
+ Plug 'preservim/nerdtree'
+ Plug 'ryanoasis/vim-devicons'
+ Plug 'Xuyuanp/nerdtree-git-plugin'
+
+""""" """"" """"" """"" """"" """""
+
 
 endif
 

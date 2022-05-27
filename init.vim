@@ -9,7 +9,7 @@ scriptencoding utf-8
 if !1 | finish | endif
 
 set nocompatible
-set number
+set relativenumber
 syntax enable
 set fileencodings=utf-8,sjis,euc-jp,latin
 set encoding=utf-8
@@ -102,7 +102,7 @@ au BufNewFile,BufRead *.flow set filetype=javascript
 " Fish
 au BufNewFile,BufRead *.fish set filetype=fish
 
-set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
+" set suffixesadd=.js,.es,.jsx,.json,.css,.less,.sass,.styl,.php,.py,.md
 
 autocmd FileType coffee setlocal shiftwidth=2 tabstop=2
 autocmd FileType ruby setlocal shiftwidth=2 tabstop=2
@@ -139,9 +139,13 @@ if exists("&termguicolors") && exists("&winblend")
   set pumblend=5
   set background=dark
   " Use NeoSolarized
-  let g:neosolarized_termtrans=1
-  runtime ./colors/NeoSolarized.vim
-  colorscheme NeoSolarized
+  "let g:neosolarized_termtrans=1
+  "runtime ./colors/NeoSolarized.vim
+  "colorscheme NeoSolarized
+  
+  " Use OneDark
+  " runtime ./colors/onedark.vim
+  colorscheme onedark
 endif
 
 "}}}
@@ -160,3 +164,15 @@ inoremap <expr> <S-Tab> pumvisible() \|\| getline('.')[col('.')-2] !~ '^\s\?$'
 autocmd CmdwinEnter * inoremap <expr> <buffer> <Tab>
       \ getline('.')[col('.')-2] !~ '^\s\?$' \|\| pumvisible()
       \ ? '<C-X><C-V>' : '<Tab>'
+
+"extra space
+set list
+set listchars=
+set listchars+=tab:░\ 
+set listchars+=trail:·
+set listchars+=extends:»
+set listchars+=precedes:«
+set listchars+=nbsp:⣿
+highlight ExtraWhitespace ctermbg=red guibg=#006984
+match ExtraWhitespace /\s\+$/
+
